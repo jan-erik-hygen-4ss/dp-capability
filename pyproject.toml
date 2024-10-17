@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "YOUR_PACKAGE_NAME"
+authors = [{ name = "EXAMPLE AUTHOR", email = "author@example.com" }]
+description = "Some description"
+readme = "README.md"
+requires-python = ">=3.9"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+dynamic = ["version"]
+dependencies = ["numpy", "pandas", "OrcFxAPI"]
+
+[project.urls]
+Homepage = "https://github.com/jan-erik-hygen-4ss/python_package_template"
+Issues = "https://github.com/jan-erik-hygen-4ss/python_package_template/issues"
+
+[tool.hatch.version]
+path = "src/YOUR_PACKAGE/__about__.py"
+
+[tool.hatch.envs.docs]
+dependencies = ["sphinx", "myst-parser"]
+
+[tool.hatch.envs.docs.scripts]
+build = "sphinx-build -b html ./docs ./build/html"
